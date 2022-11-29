@@ -65,7 +65,7 @@ public class InterfaceInvokeAspect {
      * 切点
      * 修正 InterfaceInvokeRecord 注解的全局唯一限定符
      */
-    @Pointcut("execution(* com.jzetech.*.*(..))")
+    @Pointcut("@annotation(com.jzetech.aspect.InterfaceInvokeRecord)")
     public void pointcut() {
         System.out.println("++++++++++++++++++++++++++++++++++++++");
     }

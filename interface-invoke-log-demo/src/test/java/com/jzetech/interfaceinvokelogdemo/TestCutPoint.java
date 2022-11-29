@@ -1,22 +1,22 @@
-package com.jzetech.test;
+package com.jzetech.interfaceinvokelogdemo;
 
 import com.jzetech.aspect.InterfaceInvokeRecord;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.concurrent.TimeUnit;
 
 @Component
-public class Test {
-    @PostConstruct
+public class TestCutPoint {
+
     @InterfaceInvokeRecord
-    public void test() {
-        System.out.println("休眠 1 s");
+    public void t(){
+        System.out.println("休眠 1s ...");
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("休眠结束");
+        System.out.println("休眠结束！");
     }
+
 }
