@@ -99,8 +99,8 @@ public class InterfaceInvokeAspect {
         interfaceInvokeLog = getInterfaceInvokeLog(clazzName, methodName, interfaceInvokeLogKey);
 
         try {
-            logger.debug("====== 调用方法 {}.{} 的前置通知 ======", clazzName, methodName);
-            logger.debug("====== 传入方法 {} 的实参为：{} ======", methodName, JacksonUtil.argsToString(args));
+            logger.info("====== 调用方法 {}.{} 的前置通知 ======", clazzName, methodName);
+            logger.info("====== 传入方法 {} 的实参为：{} ======", methodName, JacksonUtil.argsToString(args));
 
             // 执行目标方法之前的时间戳
             long startTimestamp = System.nanoTime();
@@ -141,11 +141,11 @@ public class InterfaceInvokeAspect {
             // 方法执行消耗 CPU 时间
             interfaceInvokeLog.getExecCpuTimeList().add(execCpuTime);
 
-            logger.debug("====== 调用方法 {}.{} 返回的结果为：{} ======", clazzName, methodName, JacksonUtil.toJsonString(result));
-            logger.debug("====== 本次执行时间为：{} 毫秒 ======", execDuration / 1000);
-            logger.debug("====== 本次执行消耗 CPU 时间为：{} 毫秒 ======", execCpuTime / 1000);
-            logger.debug("====== 累计执行时间为：{} 毫秒 ======", execDurationSum / 1000);
-            logger.debug("====== 累计执行消耗 CPU 时间为：{} 毫秒 ======", execCpuTimeSum / 1000);
+            logger.info("====== 调用方法 {}.{} 返回的结果为：{} ======", clazzName, methodName, JacksonUtil.toJsonString(result));
+            logger.info("====== 本次执行时间为：{} 毫秒 ======", execDuration / 1000);
+            logger.info("====== 本次执行消耗 CPU 时间为：{} 毫秒 ======", execCpuTime / 1000);
+            logger.info("====== 累计执行时间为：{} 毫秒 ======", execDurationSum / 1000);
+            logger.info("====== 累计执行消耗 CPU 时间为：{} 毫秒 ======", execCpuTimeSum / 1000);
 
         } catch (Throwable e) {
             logger.warn("====== 调用方法 {}.{} 时抛出异常！======", clazzName, methodName);

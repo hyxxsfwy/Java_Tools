@@ -1,5 +1,6 @@
 package com.jzetech.interfaceinvokelogdemo;
 
+import com.jzetech.aspect.InterfaceInvokeRecord;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +18,8 @@ class InterfaceInvokeLogDemoApplicationTests {
         testCutPoint.t();
     }
 
-    public void t(){
+    @InterfaceInvokeRecord
+    public void t() {
         System.out.println("休眠 1s ...");
         try {
             TimeUnit.SECONDS.sleep(1);
